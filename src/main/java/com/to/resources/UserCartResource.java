@@ -28,6 +28,9 @@ public class UserCartResource {
 	public List<Cart> getCartDetails(HttpServletRequest request){
 		//getting the current user id to fecth all cart products 
 		int userId=(Integer)request.getAttribute("userId");
+		
+		
+		
 		return cartService.getCartsByUserId(userId);		
 	}
 	
@@ -39,8 +42,11 @@ public class UserCartResource {
 		System.out.println(request.getAttribute("userId"));
 		
 		int userId=(Integer)request.getAttribute("userId");
-		//setting the current user id
+		String userName=(String) request.getAttribute("userName");
+		
+		//setting the current user id and name
 		cart.setUserId(userId);
+		cart.setUserName(userName);
 		//setting the quantity to one at first time
 		cart.setQuantity(1);
 		return cartService.saveProductIntoCart(cart,userId);

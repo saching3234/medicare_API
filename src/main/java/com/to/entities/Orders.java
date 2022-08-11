@@ -16,6 +16,7 @@ public class Orders {
 	@GeneratedValue
 	private int orderId;
 	private int userId;
+	private String userName ;
 	private String img_name;
 	private String pdescription;
 	private int pid;
@@ -28,9 +29,21 @@ public class Orders {
 	private Date deliveryDate=null;
 	private String brand;
 	
+	
+	
 	//getter and setters	
+	
+	
+	
+	
 	public String getBrand() {
 		return brand;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public void setBrand(String brand) {
 		this.brand = brand;

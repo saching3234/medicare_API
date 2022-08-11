@@ -15,6 +15,7 @@ import com.to.filters.UserAuthFilter;
 public class MedicareApiApplication {
 
 	public static void main(String[] args) {
+		 
 		SpringApplication.run(MedicareApiApplication.class, args);	
 		
 	}
@@ -27,7 +28,7 @@ public class MedicareApiApplication {
 		AdminAuthFilter adminAuthFilter=new AdminAuthFilter();
 		registrationBean.setFilter(adminAuthFilter);
 		//set the url for scanning  the request
-		registrationBean.addUrlPatterns("/api/admin/category/*","/api/admin/products/*");
+		registrationBean.addUrlPatterns("/api/admin/category/*","/api/admin/products/*","/api/admin/userOrders/*");
 		return registrationBean;
 	}
 	

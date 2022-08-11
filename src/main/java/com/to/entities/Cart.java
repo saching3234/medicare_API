@@ -21,6 +21,7 @@ public class Cart {
 	@GeneratedValue
 	private int cartId;
 	private int userId;
+	private String userName ;
 	private int cid;
 	private String img_name;
 	private String pdescription;
@@ -31,8 +32,7 @@ public class Cart {
 	//extra field
 	private int quantity;
 	
-	//getter and setters methods
-	
+	//getter and setters methods	
 	@Override
 	public String toString() {
 		return "Cart [cartId=" + cartId + ", userId=" + userId + ", cid=" + cid + ", img_name=" + img_name
@@ -40,6 +40,14 @@ public class Cart {
 				+ price_per_unit + ", quantity=" + quantity + "]";
 	}
 	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String getBrand() {
 		return brand;
 	}

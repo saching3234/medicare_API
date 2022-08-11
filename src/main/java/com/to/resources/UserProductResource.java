@@ -1,4 +1,5 @@
 package com.to.resources;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,40 @@ ProductService productService;
   //get the products by category Id
   @PostMapping("/getCatProduct")
   public List<Product> getCatProducts(@RequestBody Category category){
-     	return  productService.getAllCatProducts(category.getCid());
-  }  
+	  List<Product> activeProducts =new ArrayList<Product>();
+	  //getting the all products of selected category
+     	 List<Product> products= productService.getAllCatProducts(category.getCid());
+     	//filter out the active  products
+     	 for(Product product:products) {
+     		 if(product.isActive())
+     		activeProducts.add(product);
+     	 }
+     	  
+     	  return activeProducts;
+      }  
   
+  
+  
+//get the products by brandName
+  @PostMapping("/getProductByBrandName")
+  public List<Product> getProductByBrandName(@RequestBody Product product){ 
+	  
+	  System.out.println(product.getBrand());
+	  
+	 
+	  List<Product> brandProducts =new ArrayList<Product>();
+	  //getting the all products 
+     	 List<Product> products= productService.getAllProducts();
+     	//filter out the  products which are equal to the brand name provided
+     	 for(Product tempproduct:products) {
+     		 if(tempproduct.getBrand().equalsIgnoreCase(product.getBrand()))
+     			brandProducts.add(tempproduct);
+     	 }    	  
+     	  
+	  
+	   return  brandProducts; 
+	   
+      }   
  
   
 }

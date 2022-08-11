@@ -1,5 +1,6 @@
 package com.to.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,15 @@ public class UserOrdersResource {
 	//end point for saving all products in order details 
 	@PostMapping("/saveAllOrders")
 	public List<Orders> saveAllOrders(HttpServletRequest request,@RequestBody List<Orders> orders){
+		//setting the total price
+		List<Orders> tempOrders=new ArrayList<Orders>();
+		for(Orders order:orders) {
+		    order.setTotal(order.getQuantity()*order.getPrice_per_unit());
+		    tempOrders.add(order);
+		}
 		
-		return ordersService.saveOrders(orders);
+		//saving the orders in db
+		return ordersService.saveOrders(tempOrders);
 	}
 	
 	//end point for saving the single product in order details

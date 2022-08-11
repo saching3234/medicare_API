@@ -45,7 +45,9 @@ public class UserAuthFilter extends GenericFilterBean{
 							.getBody();
 					//setting the UserId to httpServletRequest for accessing the user ID later
 					httpServletRequest.setAttribute("userId",Integer.parseInt(claims.get("userId").toString()));
+					httpServletRequest.setAttribute("userName",claims.get("name").toString());
 					System.out.println("User filter :User Id : " + claims.get("userId").toString());
+					System.out.println("User filter :User Name : " + claims.get("name").toString());
 
 					System.out.println(httpServletRequest.getAttribute("userId"));
 				} catch (Exception e) {
