@@ -55,12 +55,12 @@ public class AdminProductResource {
 			//saving the file 
 		
 				File f2=new File(".");
-				System.out.println("File path is : using file object :"+new File(".").getCanonicalPath());
+				System.out.println("File path is : using file object :"+new File(".").getAbsolutePath());
 			
 				
 			
 			String saveFile=f2.getAbsolutePath();
-			Path path=Paths.get(saveFile+File.separator+p.getImg_name());
+			Path path=Paths.get(saveFile+"static/images"+File.separator+p.getImg_name());
 			System.out.println("File path is :"+path);
 			Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);		
 			System.out.println("File Saved Successfully");
