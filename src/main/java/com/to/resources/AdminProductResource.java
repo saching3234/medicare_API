@@ -53,7 +53,7 @@ public class AdminProductResource {
 			//converting the product string details in the product entity
 			p=new ObjectMapper().readValue(prod,Product.class);
 			//saving the file 
-			File saveFile=new ClassPathResource("static/images").getFile();
+			File saveFile=new ClassPathResource("classpath:/static/images").getFile();
 			Path path=Paths.get(saveFile.getAbsolutePath()+File.separator+p.getImg_name());
 			System.out.println("File path is :"+path);
 			Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);		
