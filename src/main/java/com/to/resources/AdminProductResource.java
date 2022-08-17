@@ -54,7 +54,7 @@ public class AdminProductResource {
 			p=new ObjectMapper().readValue(prod,Product.class);
 			//saving the file 
 		
-				File f2=new File("schin.txt");
+				File f2=new File(".");
 				System.out.println("File path is : using file object :"+new File(".").getCanonicalPath());
 			
 				
