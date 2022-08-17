@@ -59,7 +59,7 @@ public class AdminProductResource {
 			
 				
 			
-			String saveFile=new ClassPathResource("static/images").getFile().getAbsolutePath();
+			String saveFile=f2.getAbsolutePath();
 			Path path=Paths.get(saveFile+File.separator+p.getImg_name());
 			System.out.println("File path is :"+path);
 			Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);		
