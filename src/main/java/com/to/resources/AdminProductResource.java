@@ -53,26 +53,20 @@ public class AdminProductResource {
 			//converting the product string details in the product entity
 			p=new ObjectMapper().readValue(prod,Product.class);
 			//saving the file 
-		
-				File f2=new File(".");
-				System.out.println("File path is : using file object :"+new File(".").getAbsolutePath());
-			
-				
-			
-			String saveFile=f2.getAbsolutePath();
-			Path path=Paths.get(saveFile+"/static/images"+File.separator+p.getImg_name());
+			File saveFile=new ClassPathResource("static/images").getFile();
+			Path path=Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
 			System.out.println("File path is :"+path);
 			Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);		
 			System.out.println("File Saved Successfully");
 			
 			//setting the file name into the db
-			p.setImg_name("images/"+p.getImg_name());
+			p.setImg_name("images/"+file.getOriginalFilename());
 			
 		}	catch (Exception e) {
 			System.out.println("Error While Saving the file"+e.toString());
 		}
 		System.out.println(p.toString());
-		System.out.println("Orignal file path and name: "+file.getOriginalFilename());
+		System.out.println(file.getOriginalFilename());
 		return productService.saveProduct(p);		
 	}
 	
@@ -106,13 +100,13 @@ public class AdminProductResource {
 				p=new ObjectMapper().readValue(prod,Product.class);
 				//saving the file 
 				File saveFile=new ClassPathResource("static/images").getFile();
-				Path path=Paths.get(saveFile.getAbsolutePath()+File.separator+p.getImg_name());
+				Path path=Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
 				System.out.println("File path is :"+path);
 				Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);		
 				System.out.println("File Saved Successfully");
 				
 				//setting the file name into the db
-				p.setImg_name("images/"+p.getImg_name());
+				p.setImg_name("images/"+file.getOriginalFilename());
 				
 			}	catch (Exception e) {
 				System.out.println("Error While Saving the file"+e.toString());
