@@ -1,4 +1,4 @@
-package com.to.resources;
+package com.to.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class AdminCategoryResource {
 	//getting the category by cid
 	  @PostMapping("/getCatById")
 	  public Category getCat(@RequestBody Category cat){
-		  System.out.println(cat.getCid());
+		  //System.out.println(cat.getCid());
 		 // int id=Integer.parseInt(product.getPid());
 	   	return  categoryService.getCat(cat.getCid());
 	}

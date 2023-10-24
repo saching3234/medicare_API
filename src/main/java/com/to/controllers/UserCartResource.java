@@ -1,4 +1,4 @@
-package com.to.resources;
+package com.to.controllers;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
