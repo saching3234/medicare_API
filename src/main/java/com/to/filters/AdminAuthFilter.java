@@ -27,6 +27,20 @@ public class AdminAuthFilter extends GenericFilterBean {
 		// and response
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+		
+		
+		    
+		// ✅ Always set CORS headers
+		httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+		httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+		httpServletResponse.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
+		httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+
+	    // ✅ Let OPTIONS requests pass through immediately
+	    if ("OPTIONS".equalsIgnoreCase(httpServletRequest.getMethod())) {
+	    	httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+	        return;
+	    }
 
 		// getting the bearer string
 		String authHeader = httpServletRequest.getHeader("Authorization");

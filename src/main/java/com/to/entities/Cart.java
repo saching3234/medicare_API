@@ -1,8 +1,10 @@
 package com.to.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +26,8 @@ public class Cart {
 	private String userName ;
 	private int cid;
 	private String img_name;
+	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String pdescription;
 	private String pid;
 	private String pname;

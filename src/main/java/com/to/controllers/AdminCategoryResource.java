@@ -15,8 +15,8 @@ import com.to.entities.Category;
 import com.to.entities.Product;
 import com.to.services.CategoryService;
 
+@CrossOrigin(origins = "*")
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/admin/category")
 public class AdminCategoryResource {
 	

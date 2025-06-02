@@ -32,8 +32,8 @@ import com.to.entities.TempProduct;
 import com.to.services.ProductService;
 
 
+@CrossOrigin(origins = "*")
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/admin/products")
 public class AdminProductResource {
 	@Autowired

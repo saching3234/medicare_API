@@ -1,8 +1,10 @@
 package com.to.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -22,6 +24,8 @@ public class Product {
 	private int pid;
 	private int cid; 
 	private String pname;
+	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String pdescription;
 	private int available_quantity;
 	private int price_per_unit;

@@ -2,9 +2,11 @@ package com.to.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.query.criteria.internal.expression.function.CurrentDateFunction;
@@ -18,6 +20,8 @@ public class Orders {
 	private int userId;
 	private String userName ;
 	private String img_name;
+	@Lob
+	@Column(columnDefinition = "TEXT")
 	private String pdescription;
 	private int pid;
 	private String pname;
