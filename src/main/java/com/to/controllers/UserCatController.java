@@ -14,7 +14,7 @@ import com.to.services.CategoryService;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/users/category")
-public class UserCatResource {
+public class UserCatController {
 	@Autowired
 	CategoryService categoryService;
 	

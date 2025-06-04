@@ -19,7 +19,7 @@ import com.to.services.OrdersService;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/users/orders")
-public class UserOrdersResource {
+public class UserOrdersController {
 	
 	@Autowired
 	OrdersService ordersService;

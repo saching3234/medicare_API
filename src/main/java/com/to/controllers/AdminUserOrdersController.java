@@ -25,7 +25,7 @@ import com.to.services.UserService;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/admin/userOrders")
-public class AdminUserOrdersResource {
+public class AdminUserOrdersController {
 	
 	@Autowired
 	OrdersService ordersService;	

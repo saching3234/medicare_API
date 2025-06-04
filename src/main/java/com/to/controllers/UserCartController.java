@@ -19,7 +19,7 @@ import com.to.services.CartService;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/users/cart")
-public class UserCartResource {
+public class UserCartController {
 	
 	@Autowired
 	CartService cartService;

@@ -23,7 +23,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/admin")
-public class AdminLoginResource {
+public class AdminLoginController {
 
 	@Autowired
 	AdminLoginService adminLoginService;

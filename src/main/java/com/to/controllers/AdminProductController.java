@@ -35,7 +35,7 @@ import com.to.services.ProductService;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/admin/products")
-public class AdminProductResource {
+public class AdminProductController {
 	@Autowired
 	ProductService productService;
 	

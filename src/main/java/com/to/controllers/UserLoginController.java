@@ -24,7 +24,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/users")
-public class UserLoginResource {
+public class UserLoginController {
 	@Autowired
 	UserService userService;
 

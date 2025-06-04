@@ -16,7 +16,7 @@ import com.to.services.UserService;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users/change")
-public class UserUpdateResource {
+public class UserUpdateController {
 	@Autowired
 	UserService userService;
 	

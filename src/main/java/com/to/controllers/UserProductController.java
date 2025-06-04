@@ -17,7 +17,7 @@ import com.to.services.ProductService;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/users/products")
-public class UserProductResource {
+public class UserProductController {
 @Autowired
 ProductService productService;
 
