@@ -22,10 +22,10 @@ import com.to.services.CategoryService;
 
 
 @SpringBootTest
-class AdminCategoryResourceTest {
+class AdminCategoryControllerTest {
 	
 	@InjectMocks
-	AdminCategoryResource adminCategoryResource;
+	AdminCategoryController adminCategoryResource;
 	@Mock
 	CategoryService categoryService;
 	

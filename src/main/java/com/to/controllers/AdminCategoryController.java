@@ -16,9 +16,9 @@ import com.to.entities.Product;
 import com.to.services.CategoryService;
 
 @CrossOrigin(origins = "*")
-@RestController
+@RestController 
 @RequestMapping("/api/admin/category")
-public class AdminCategoryResource {
+public class AdminCategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
