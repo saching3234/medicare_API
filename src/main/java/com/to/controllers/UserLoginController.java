@@ -33,7 +33,8 @@ public class UserLoginController {
 		User user2 = userService.saveUser(user);
 		return new ResponseEntity<>(generatJWTToken(user2), HttpStatus.OK);
 	}
-	@CrossOrigin(origins="*")
+
+	@CrossOrigin(origins = "*")
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, Object> userMap) {
 		// Extracting the email id and password provided by user
@@ -45,17 +46,6 @@ public class UserLoginController {
 		// if we got the user then returning the token
 		return new ResponseEntity<>(generatJWTToken(user), HttpStatus.OK);
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	// method for generating the token
 	private Map<String, String> generatJWTToken(User user) {
@@ -70,11 +60,8 @@ public class UserLoginController {
 		Map<String, String> map = new HashMap<>();
 		map.put("token", tokenString);
 		map.put("userName", user.getName());
-		map.put("userId",String.valueOf(user.getUid()));
+		map.put("userId", String.valueOf(user.getUid()));
 		return map;
 	}
-	
-	
-	
 
 }

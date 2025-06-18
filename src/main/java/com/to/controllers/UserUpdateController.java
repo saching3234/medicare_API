@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.to.entities.User;
 import com.to.services.UserService;
 
+import ch.qos.logback.classic.Logger;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users/change")
 public class UserUpdateController {
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	Logger logger;
 	
 	//method for getting the current user details
 	@GetMapping("/getCurrentUser")
@@ -34,6 +39,7 @@ public class UserUpdateController {
 	public User changeUserDetails(HttpServletRequest request,@RequestBody User user){
 		int currentUserId=(Integer)request.getAttribute("userId");		
 		System.out.println("User Id in resource :"+currentUserId);
+		logger.info("User Id in resource :"+currentUserId);
 		return userService.changeUserDetails(currentUserId,user);		
 	}
 

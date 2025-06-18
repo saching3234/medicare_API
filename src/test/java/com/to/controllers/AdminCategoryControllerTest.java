@@ -13,15 +13,17 @@ import java.util.List;
 import org.apache.catalina.startup.CertificateCreateRule;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.to.entities.Category;
 import com.to.services.CategoryService;
 
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class AdminCategoryControllerTest {
 	
 	@InjectMocks
