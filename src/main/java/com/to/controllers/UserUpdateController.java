@@ -22,8 +22,8 @@ public class UserUpdateController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
-	Logger logger;
+//	@Autowired
+//	Logger logger;
 	
 	//method for getting the current user details
 	@GetMapping("/getCurrentUser")
@@ -39,7 +39,7 @@ public class UserUpdateController {
 	public User changeUserDetails(HttpServletRequest request,@RequestBody User user){
 		int currentUserId=(Integer)request.getAttribute("userId");		
 		System.out.println("User Id in resource :"+currentUserId);
-		logger.info("User Id in resource :"+currentUserId);
+		//logger.info("User Id in resource :"+currentUserId);
 		return userService.changeUserDetails(currentUserId,user);		
 	}
 
