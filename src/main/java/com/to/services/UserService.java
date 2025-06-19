@@ -79,18 +79,11 @@ public class UserService {
 		else {
 			throw new EtResourceNotFoundException("User Does not exist ");
 		}
-		
-		
-		
 	}
-	
 	
 	//method for getting the all user details
 	public List<User> getAllUsers(){
 		return repository.findAll();
 	}
-	
-	
-	
 	
 }

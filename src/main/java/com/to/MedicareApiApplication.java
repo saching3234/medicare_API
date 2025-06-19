@@ -15,7 +15,7 @@ import com.to.filters.UserAuthFilter;
 public class MedicareApiApplication {
 
 	public static void main(String[] args) {
-		 
+		    
 		SpringApplication.run(MedicareApiApplication.class, args);	
 		
 	}

@@ -22,7 +22,6 @@ public class UserAuthFilter extends GenericFilterBean{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		// TODO Auto-generated method stub
 		// converting the generic servlet request and response into http servlet request
 		// and response
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;

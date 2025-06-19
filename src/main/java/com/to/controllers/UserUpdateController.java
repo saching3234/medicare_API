@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.to.entities.User;
 import com.to.services.UserService;
 
-import ch.qos.logback.classic.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -22,8 +23,7 @@ public class UserUpdateController {
 	@Autowired
 	UserService userService;
 	
-//	@Autowired
-//	Logger logger;
+	private static final Logger logger = LoggerFactory.getLogger(UserUpdateController.class);
 	
 	//method for getting the current user details
 	@GetMapping("/getCurrentUser")
@@ -39,7 +39,7 @@ public class UserUpdateController {
 	public User changeUserDetails(HttpServletRequest request,@RequestBody User user){
 		int currentUserId=(Integer)request.getAttribute("userId");		
 		System.out.println("User Id in resource :"+currentUserId);
-		//logger.info("User Id in resource :"+currentUserId);
+		logger.info("User Id in resource :"+currentUserId);
 		return userService.changeUserDetails(currentUserId,user);		
 	}
 
