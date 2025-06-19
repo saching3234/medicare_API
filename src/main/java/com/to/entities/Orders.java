@@ -32,14 +32,8 @@ public class Orders {
 	private String deliveryStatus="pending";
 	private Date deliveryDate=null;
 	private String brand;
-	
-	
-	
+
 	//getter and setters	
-	
-	
-	
-	
 	public String getBrand() {
 		return brand;
 	}
@@ -125,10 +119,4 @@ public class Orders {
 	public void setDeliveryStatus(String deliveryStatus) {
 		this.deliveryStatus = deliveryStatus;
 	}
-	
-	
-	
-	
-	
-
 }

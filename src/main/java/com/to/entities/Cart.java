@@ -37,12 +37,6 @@ public class Cart {
 	private int quantity;
 	
 	//getter and setters methods	
-	@Override
-	public String toString() {
-		return "Cart [cartId=" + cartId + ", userId=" + userId + ", cid=" + cid + ", img_name=" + img_name
-				+ ", pdescription=" + pdescription + ", pid=" + pid + ", pname=" + pname + ", price_per_unit="
-				+ price_per_unit + ", quantity=" + quantity + "]";
-	}
 	
 	public String getUserName() {
 		return userName;
@@ -113,5 +107,12 @@ public class Cart {
 	public void setPrice_per_unit(int price_per_unit) {
 		this.price_per_unit = price_per_unit;
 	}	
+	
+	@Override
+	public String toString() {
+		return "Cart [cartId=" + cartId + ", userId=" + userId + ", cid=" + cid + ", img_name=" + img_name
+				+ ", pdescription=" + pdescription + ", pid=" + pid + ", pname=" + pname + ", price_per_unit="
+				+ price_per_unit + ", quantity=" + quantity + "]";
+	}
 
 }
