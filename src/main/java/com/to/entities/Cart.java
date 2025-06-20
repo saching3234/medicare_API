@@ -36,8 +36,29 @@ public class Cart {
 	//extra field
 	private int quantity;
 	
-	//getter and setters methods	
 	
+	//default constructor	
+	public Cart() {
+		super();
+	}
+	
+	public Cart(int cartId, int userId, String userName, int cid, String img_name, String pdescription, String pid,
+			String pname, int price_per_unit, String brand, int quantity) {
+		super();
+		this.cartId = cartId;
+		this.userId = userId;
+		this.userName = userName;
+		this.cid = cid;
+		this.img_name = img_name;
+		this.pdescription = pdescription;
+		this.pid = pid;
+		this.pname = pname;
+		this.price_per_unit = price_per_unit;
+		this.brand = brand;
+		this.quantity = quantity;
+	}
+	
+	//getter and setters methods	
 	public String getUserName() {
 		return userName;
 	}

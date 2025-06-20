@@ -23,6 +23,27 @@ public class TempProduct {
 	private boolean active;
 	private String img_name;
 	private String brand;
+	
+	// Default constructor
+	public TempProduct() {
+		super();
+	}
+
+	//all args constructor
+	public TempProduct(int pid, int cid, String pname, String pdescription, int available_quantity, int price_per_unit,
+			boolean active, String img_name, String brand) {
+		super();
+		this.pid = pid;
+		this.cid = cid;
+		this.pname = pname;
+		this.pdescription = pdescription;
+		this.available_quantity = available_quantity;
+		this.price_per_unit = price_per_unit;
+		this.active = active;
+		this.img_name = img_name;
+		this.brand = brand;
+	}
+	
 	public int getPid() {
 		return pid;
 	}

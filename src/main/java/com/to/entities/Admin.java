@@ -21,6 +21,23 @@ public class Admin {
 	private String adminId;
 	private String password;
 	
+	
+	
+	public Admin(int id, String adminId, String password) {
+		super();
+		this.id = id;
+		this.adminId = adminId;
+		this.password = password;
+	}
+	
+	
+	
+	public Admin() {
+		super();
+	}
+
+
+
 	//getter and setter
 	public int getId() {
 		return id;
