@@ -101,4 +101,68 @@ class AdminProductControllerTest {
             .isInstanceOf(RuntimeException.class)
             .hasMessageContaining("UpdateImg error");
     }
+
+    @Test
+    void testSaveProduct() throws Exception {
+        MultipartFile file = mock(MultipartFile.class);
+        String prodJson = "{\"pid\":1,\"pname\":\"Test\",\"img_name\":\"\"}";
+        Product product = new Product();
+        product.setPid(1);
+        product.setPname("Test");
+        product.setImg_name("images/test.jpg");
+        when(file.getOriginalFilename()).thenReturn("test.jpg");
+        when(file.getInputStream()).thenReturn(new java.io.ByteArrayInputStream(new byte[0]));
+        when(productService.saveProduct(any(Product.class))).thenReturn(product);
+        Product result = adminProductController.saveProduct(file, prodJson);
+        assertNotNull(result);
+        assertThat(result.getPname()).isEqualTo("Test");
+    }
+
+    @Test
+    void testGetProduct() {
+        Product input = new Product();
+        input.setPid(1);
+        Product output = new Product();
+        output.setPid(1);
+        output.setPname("Test");
+        when(productService.getProduct(1)).thenReturn(output);
+        Product result = adminProductController.getProduct(input);
+        assertNotNull(result);
+        assertThat(result.getPid()).isEqualTo(1);
+    }
+
+    @Test
+    void testDeleteProduct() {
+        Product product = new Product();
+        product.setPid(1);
+        when(productService.deleteProduct(product)).thenReturn("Deleted");
+        String result = adminProductController.deleteProduct(product);
+        assertThat(result).isEqualTo("Deleted");
+    }
+
+    @Test
+    void testUpdateProduct() {
+        Product product = new Product();
+        product.setPid(1);
+        when(productService.updtaeProduct(product)).thenReturn(product);
+        Product result = adminProductController.updateProduct(product);
+        assertNotNull(result);
+        assertThat(result.getPid()).isEqualTo(1);
+    }
+
+    @Test
+    void testUpdateProductImg() throws Exception {
+        MultipartFile file = mock(MultipartFile.class);
+        String prodJson = "{\"pid\":2,\"pname\":\"Test2\",\"img_name\":\"\"}";
+        Product product = new Product();
+        product.setPid(2);
+        product.setPname("Test2");
+        product.setImg_name("images/test2.jpg");
+        when(file.getOriginalFilename()).thenReturn("test2.jpg");
+        when(file.getInputStream()).thenReturn(new java.io.ByteArrayInputStream(new byte[0]));
+        when(productService.updtaeProduct(any(Product.class))).thenReturn(product);
+        Product result = adminProductController.updateProductImg(file, prodJson);
+        assertNotNull(result);
+        assertThat(result.getPname()).isEqualTo("Test2");
+    }
 }

@@ -50,4 +50,30 @@ class AdminLoginControllerTest {
         assertTrue(response.getBody().containsKey("token"));
         assertEquals("admin123", response.getBody().get("adminId"));
     }
+
+    @Test
+    void testRegisterAdmin_AdminAlreadyRegistered() {
+        Admin admin = new Admin();
+        admin.setAdminId("admin123");
+        when(adminLoginService.isAdminAlreadyRegistered("admin123")).thenReturn(true);
+
+        ResponseEntity<?> response = adminLoginController.registerAdmin(admin);
+        assertEquals(401, response.getStatusCodeValue());
+        assertEquals("Admin already registered", response.getBody());
+    }
+
+    @Test
+    void testRegisterAdmin_Success() {
+        Admin admin = new Admin();
+        admin.setAdminId("admin456");
+        when(adminLoginService.isAdminAlreadyRegistered("admin456")).thenReturn(false);
+        doNothing().when(adminLoginService).registerAdmin(admin);
+
+        ResponseEntity<?> response = adminLoginController.registerAdmin(admin);
+        assertEquals(200, response.getStatusCodeValue());
+        assertTrue(response.getBody() instanceof Map);
+        Map<?,?> body = (Map<?,?>) response.getBody();
+        assertTrue(body.containsKey("token"));
+        assertEquals("admin456", body.get("adminId"));
+    }
 }

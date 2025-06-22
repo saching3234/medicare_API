@@ -60,4 +60,38 @@ class AdminLoginServiceTest {
                 adminLoginService.adminLoginCheck(inputAdmin));
         assertTrue(exception.getMessage().contains("Invalid Admin Id"));
     }
+
+    @Test
+    void isAdminAlreadyRegistered_returnsTrue_whenAdminExists() {
+        String adminId = "admin123";
+        Admin dbAdmin = new Admin();
+        dbAdmin.setAdminId(adminId);
+        when(adminLoginRepository.findByAdminId(adminId)).thenReturn(dbAdmin);
+        assertTrue(adminLoginService.isAdminAlreadyRegistered(adminId));
+    }
+
+    @Test
+    void isAdminAlreadyRegistered_returnsFalse_whenAdminDoesNotExist() {
+        String adminId = "admin456";
+        when(adminLoginRepository.findByAdminId(adminId)).thenReturn(null);
+        assertFalse(adminLoginService.isAdminAlreadyRegistered(adminId));
+    }
+
+    @Test
+    void registerAdmin_successfulRegistration() {
+        Admin admin = new Admin();
+        admin.setAdminId("admin789");
+        when(adminLoginRepository.save(admin)).thenReturn(admin);
+        when(adminLoginRepository.findByAdminId("admin789")).thenReturn(admin);
+        assertDoesNotThrow(() -> adminLoginService.registerAdmin(admin));
+    }
+
+    @Test
+    void registerAdmin_throwsException_whenNotRegistered() {
+        Admin admin = new Admin();
+        admin.setAdminId("admin000");
+        when(adminLoginRepository.save(admin)).thenReturn(admin);
+        when(adminLoginRepository.findByAdminId("admin000")).thenReturn(null);
+        assertThrows(EtAuthException.class, () -> adminLoginService.registerAdmin(admin));
+    }
 }
