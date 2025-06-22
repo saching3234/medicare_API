@@ -27,11 +27,25 @@ public class AdminLoginController {
 
 	@Autowired
 	AdminLoginService adminLoginService;
+
+	
+	
+	@PostMapping("/register")
+	
+	public ResponseEntity<?> registerAdmin(@RequestBody Admin admin){
+		//checking the admin is already registered or not
+		if(adminLoginService.isAdminAlreadyRegistered(admin.getAdminId())) {
+			return new ResponseEntity<>("Admin already registered",HttpStatus.UNAUTHORIZED);
+		}
+		//registering the admin
+		adminLoginService.registerAdmin(admin);
+		
+		return new ResponseEntity<>(generatJWTToken(admin),HttpStatus.OK);			
+	}
+	
 	
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, String>> loginAdmin(@RequestBody Admin admin){
-		
-		
 		Admin admin2=adminLoginService.adminLoginCheck(admin);
 	   //returning the token
 		return new ResponseEntity<>(generatJWTToken(admin2),HttpStatus.OK);		

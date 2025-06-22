@@ -35,4 +35,30 @@ public class AdminLoginService {
 
 	}
 
+public boolean isAdminAlreadyRegistered(String adminId) {
+	// checking if the admin is already registered or not
+	Admin dbAdmin = adminLoginRepository.findByAdminId(adminId);	
+	if (dbAdmin != null) {
+		return true;
+	}
+	// if admin not found then returning false	
+	return false;
+}
+
+public void registerAdmin(Admin admin) {
+	
+	// registering the admin
+	admin.setId(null); // setting id to null to let the database generate it
+	adminLoginRepository.save(admin);
+	// if admin registered successfully then returning true
+	if (adminLoginRepository.findByAdminId(admin.getAdminId()) != null) {
+		return;
+	}
+	// if admin not registered then throw an exception
+	else {
+		throw new EtAuthException("Admin not registered");
+	}
+	
+}
+
 }

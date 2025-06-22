@@ -1,6 +1,7 @@
 package com.to.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,11 +18,10 @@ import lombok.ToString;
 @Table(name="Admin")
 public class Admin {
 	@Id
-	private int id;
+	@GeneratedValue
+	private Integer id;
 	private String adminId;
 	private String password;
-	
-	
 	
 	public Admin(int id, String adminId, String password) {
 		super();
@@ -30,16 +30,12 @@ public class Admin {
 		this.password = password;
 	}
 	
-	
-	
 	public Admin() {
 		super();
 	}
 
-
-
 	//getter and setter
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	public String getAdminId() {
@@ -48,7 +44,7 @@ public class Admin {
 	public String getPassword() {
 		return password;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public void setAdminId(String adminId) {
@@ -63,9 +59,4 @@ public class Admin {
 	public String toString() {
 		return "Admin [id=" + id + ", adminId=" + adminId + ", password=" + password + "]";
 	}
-	
-
-	
-	
-
 }
